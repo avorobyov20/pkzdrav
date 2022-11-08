@@ -1,0 +1,49 @@
+# Запустить консольное окно cmd.exe
+# Перейти в нем в каталог где лежат файлы how_to_install_and_run.txt и manage.py
+# Выполнить последовательно все команды до *****
+
+python -m venv venv
+
+cd venv/Scripts/
+activate.bat
+cd ../..
+
+python -m pip install --upgrade pip
+pip install django
+pip install djangorestframework
+pip install django-cors-headers
+pip install drf-yasg
+pip install requests
+pip install pytest
+
+python manage.py collectstatic
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'secret')"
+
+# Возможно, этот шаг будет выполняться пару минут, если у вас HDD
+python manage.py 01_gen_test_data
+
+python manage.py 02_gen_files_with_reference_data_for_pytest
+python manage.py runserver
+*****
+
+# Войти в административную панель http://127.0.0.1:8000/admin
+# user: admin
+# password: secret
+#
+# Ознакомиться с документацией на API
+# http://127.0.0.1:8000/swagger
+# http://127.0.0.1:8000/redoc 
+
+# Не завершая работу веб-сервера, запустить еще одно консольное окно cmd.exe
+# Перейти в нем в каталог где лежат файлы how_to_install_and_run.txt и manage.py
+# Выполнить последовательно все команды до ***
+
+cd venv/Scripts/
+activate.bat
+cd ../../api/tests
+pytest 01_data_driven_tests.py
+***
+
