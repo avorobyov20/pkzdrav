@@ -23,7 +23,7 @@ C:\Users\Admin>wsl -l -v
   Ubuntu-22.04           Running         2
 ...
 ```
-Удалить установленный образ потом можно будет так
+### ... удалить установленный образ потом можно будет так
 ```
 wsl --unregister Ubuntu-22.04
 ```
@@ -42,3 +42,35 @@ python3 -m venv env
 . env/bin/activate
 python -m pip install --upgrade pip
 ```
+
+### Установить библиотеки
+#### ... по файлу requirements.txt
+```
+pip install -r requirements.txt
+```
+#### ... либо вручную, если нужны последние версии
+```
+pip install django
+pip install djangorestframework
+pip install django-cors-headers
+pip install drf-yasg
+pip install requests
+pip install pytest
+pip freeze > requirements.txt
+```
+
+### Подготовить приложение к запуску
+```
+python manage.py collectstatic
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'secret')"
+python manage.py 01_gen_test_data
+python manage.py 02_gen_files_with_reference_data_for_pytest
+python manage.py runserver
+```
+
+
+
+
+
