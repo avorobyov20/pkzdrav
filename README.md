@@ -90,6 +90,7 @@ C:\>wsl ~ -d Ubuntu-22.04
 ```
 ### ... и запустить в нем тесты
 ```
+cd pkzdrav
 . env/bin/activate
 pytest api/tests/01_data_driven_tests.py
 ```
