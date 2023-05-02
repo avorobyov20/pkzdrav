@@ -3,5 +3,4 @@ env/
 .idea/
 static/
 api/test_data/*.json
-main/migrations/
 terminology.sqlite3
