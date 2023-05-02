@@ -36,7 +36,7 @@ C:\>wsl ~ -d Ubuntu-22.04
 ```
 sudo apt update
 sudo apt install python3.10-venv
-git clone https://github.com/avorobyov20/pkzdrav.git
+git clone https://github.com/artemgv/pkzdrav.git
 cd pkzdrav
 python3 -m venv env
 . env/bin/activate
