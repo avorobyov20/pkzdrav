@@ -67,8 +67,26 @@ python manage.py migrate
 python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'secret')"
 python manage.py 01_gen_test_data
 python manage.py 02_gen_files_with_reference_data_for_pytest
+```
+
+### Запустить приложение
+```
 python manage.py runserver
 ```
+
+### Войти в административную панель
+```
+http://127.0.0.1:8000/admin
+user: admin
+password: secret
+```
+
+### Ознакомиться с документацией на API
+```
+http://127.0.0.1:8000/swagger
+http://127.0.0.1:8000/redoc
+```
+
 
 
 
