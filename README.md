@@ -1,4 +1,6 @@
-Список доступных образов
+## Инструкции по развертыванию приложения на WSL
+
+### Получить список доступных образов
 ```
 C:\>wsl -l -o
 The following is a list of valid distributions that can be installed.
@@ -9,13 +11,11 @@ Ubuntu                                 Ubuntu
 Ubuntu-22.04                           Ubuntu 22.04 LTS
 ...
 ```
-
-Устанавливаем убунту из образа Ubuntu-22.04 
+### Установить ubuntu из образа Ubuntu-22.04 
 ```
 wsl --install -d Ubuntu-22.04
 ```
-
-Список установленных образов
+### Получить список установленных образов
 ```
 C:\Users\Admin>wsl -l -v
   NAME                   STATE           VERSION
@@ -23,14 +23,22 @@ C:\Users\Admin>wsl -l -v
   Ubuntu-22.04           Running         2
 ...
 ```
-
-Удалить можно будет так
+Удалить установленный образ потом можно будет так
 ```
 wsl --unregister Ubuntu-22.04
 ```
-
-# Логинимся на установленную убунту Ubuntu-22.04
+### Залогиниться
 ```
 wsl ~ -d Ubuntu-22.04
 ```
 
+### Выполнить команды
+```
+sudo apt update
+sudo apt install python3.10-venv
+git clone https://github.com/avorobyov20/pkzdrav.git
+cd pkzdrav
+python3 -m venv env
+. env/bin/activate
+python -m pip install --upgrade pip
+```
