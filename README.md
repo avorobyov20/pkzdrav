@@ -3,9 +3,6 @@
 ### Получить список доступных образов
 ```
 C:\>wsl -l -o
-The following is a list of valid distributions that can be installed.
-Install using 'wsl.exe --install <Distro>'.
-
 NAME                                   FRIENDLY NAME
 Ubuntu                                 Ubuntu
 Ubuntu-22.04                           Ubuntu 22.04 LTS
@@ -13,11 +10,11 @@ Ubuntu-22.04                           Ubuntu 22.04 LTS
 ```
 ### Установить ubuntu из образа Ubuntu-22.04 
 ```
-wsl --install -d Ubuntu-22.04
+C:\>wsl --install -d Ubuntu-22.04
 ```
 ### Получить список установленных образов
 ```
-C:\Users\Admin>wsl -l -v
+C:\>wsl -l -v
   NAME                   STATE           VERSION
 * Ubuntu                 Stopped         2
   Ubuntu-22.04           Running         2
@@ -25,11 +22,11 @@ C:\Users\Admin>wsl -l -v
 ```
 ### ... удалить установленный образ потом можно будет так
 ```
-wsl --unregister Ubuntu-22.04
+C:\>wsl --unregister Ubuntu-22.04
 ```
 ### Залогиниться
 ```
-wsl ~ -d Ubuntu-22.04
+C:\>wsl ~ -d Ubuntu-22.04
 ```
 
 ### Выполнить команды
@@ -87,8 +84,12 @@ http://127.0.0.1:8000/swagger
 http://127.0.0.1:8000/redoc
 ```
 
-
-
-
-
-
+### Не завершая работу веб-сервера, открыть параллельно второй сеанс с Ubuntu-22.04
+```
+C:\>wsl ~ -d Ubuntu-22.04
+```
+### ... и запустить в нем тесты
+```
+. env/bin/activate
+pytest api/tests/01_data_driven_tests.py
+```
