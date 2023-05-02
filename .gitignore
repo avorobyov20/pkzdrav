@@ -1,0 +1,7 @@
+__pycache__/
+env/
+.idea/
+static/
+api/test_data/
+main/migrations/
+terminology.sqlite3
